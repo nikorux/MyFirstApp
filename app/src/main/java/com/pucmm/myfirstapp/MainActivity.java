@@ -43,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Name = (EditText) findViewById(R.id.txtNombre);
+        LastName = (EditText) findViewById(R.id.txtApellido);
+
         mDisplayDate = (TextView) findViewById(R.id.tvDate);
 
         final Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
@@ -86,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Name = (EditText) findViewById(R.id.txtNombre);
-        LastName = (EditText) findViewById(R.id.txtApellido);
+
 
         Java = (CheckBox) findViewById(R.id.cbJava);
         Python = (CheckBox) findViewById(R.id.cbPython);
@@ -130,21 +133,85 @@ public class MainActivity extends AppCompatActivity {
         Enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String nameValue = Name.getText().toString();
                 String secnameValue = LastName.getText().toString();
                 String fecha = mDisplayDate.getText().toString();
                 String genero = mySpinner.getSelectedItem().toString();
 
-                String megusta = "";
+                if (nameValue.isEmpty() || secnameValue.isEmpty() || genero.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Estos datos deben ser obligatorios", Toast.LENGTH_SHORT).show();
+                }
+                else {
 
-                if (Si.isChecked()) {
+                    String megusta = "";
 
-                    megusta = "Me gusta programar.";
+                    if (Si.isChecked()) {
+
+                        megusta = "Me gusta programar. Mis lenguajes \nfavoritos son: ";
+                        if (Java.isChecked()) {
+                            megusta = megusta+"Java, ";
+                        }
+                        if (Python.isChecked()) {
+                            megusta = megusta+"Python, ";
+                        }
+                        if (JS.isChecked()) {
+                            megusta = megusta+"JS, ";
+                        }
+                        if (GoLand.isChecked()) {
+                            megusta = megusta+"Go, ";
+                        }
+                        if (CC.isChecked()) {
+                            megusta = megusta+"C/C++, ";
+                        }
+                        if (CS.isChecked()) {
+                            megusta = megusta+"C#, ";
+                        }
+                        megusta = megusta+".";
+
+                    }
+                    else if (No.isChecked()) {
+                        megusta = "No me gusta programar.";
+                    }
+
+                    String mg = megusta.toString();
+
+                    Intent intent = new Intent (MainActivity.this, SecondActivity.class);
+                    intent.putExtra("NOMBRE", nameValue);
+                    intent.putExtra("APELLIDO", secnameValue);
+                    intent.putExtra("FECHA", fecha);
+                    intent.putExtra("GENERO", genero);
+                    intent.putExtra("MEGUSTA", mg);
+                    startActivity(intent);
+                    /*else if (No.isChecked()) {
+
+                    }*/
+
+
+                    /*if (Java.isEnabled()) {
+                        megusta = megusta+"Java, ";
+                    }
+                    if (Python.isEnabled()) {
+                        megusta = megusta+"Python, ";
+                    }
+                    if (JS.isEnabled()) {
+                        megusta = megusta+"JS, ";
+                    }
+                    if (GoLand.isEnabled()) {
+                        megusta = megusta+"Go, ";
+                    }
+                    if (CC.isEnabled()) {
+                        megusta = megusta+"C/C++, ";
+                    }
+                    if (CS.isEnabled()) {
+                        megusta = megusta+"C#, ";
+                    }*/
+
+
 
                 }
-                else if (No.isChecked()) {
 
-                    megusta = "No me gusta programar.";
+                /*    megusta = "No me gusta programar.";
 
                 }
 
@@ -156,9 +223,9 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("FECHA", fecha);
                 intent.putExtra("GENERO", genero);
                 intent.putExtra("MEGUSTA", mg);
-                startActivity(intent);
+                startActivity(intent);*/
             }
-                                  }
+          }
 
 
         );
