@@ -13,8 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.util.Calendar;
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     String Nombre;
     String Apellido;
     EditText Name, LastName;
+    RadioGroup Lenguajes;
+    RadioButton Si, No;
     Button Enviar, Limpiar;
 
     @Override
@@ -44,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
+
+        Lenguajes = (RadioGroup) findViewById(R.id.rgmegusta);
+        Si = (RadioButton) findViewById(R.id.rbsi);
+        No = (RadioButton) findViewById(R.id.rbno);
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +90,33 @@ public class MainActivity extends AppCompatActivity {
         Enviar = (Button) findViewById(R.id.btnEnviar);
         Limpiar = (Button) findViewById(R.id.btnLimpiar);
 
+        Lenguajes.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (Si.isChecked()) {
+                    Toast.makeText(MainActivity.this, "ACTIVO", Toast.LENGTH_SHORT).show();
+                    /*Java.setEnabled(true);
+                    Python.setEnabled(true);
+                    JS.setEnabled(true);
+                    GoLand.setEnabled(true);
+                    CC.setEnabled(true);
+                    CS.setEnabled(true);*/
+
+
+                }
+                else if (No.isChecked()) {
+                    Toast.makeText(MainActivity.this, "INACTIVO", Toast.LENGTH_SHORT).show();
+                    /*Java.setEnabled(false);
+                    Python.setEnabled(false);
+                    JS.setEnabled(false);
+                    GoLand.setEnabled(false);
+                    CC.setEnabled(false);
+                    CS.setEnabled(false);*/
+
+                }
+            }
+        });
+
         Enviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -88,11 +124,28 @@ public class MainActivity extends AppCompatActivity {
                 String secnameValue = LastName.getText().toString();
                 String fecha = mDisplayDate.getText().toString();
                 String genero = mySpinner.getSelectedItem().toString();
+
+                String megusta = "";
+
+                if (Si.isChecked()) {
+
+                    megusta = "Me gusta programar.";
+
+                }
+                else if (No.isChecked()) {
+
+                    megusta = "No me gusta programar.";
+
+                }
+
+                String mg = megusta.toString();
+
                 Intent intent = new Intent (MainActivity.this, SecondActivity.class);
                 intent.putExtra("NOMBRE", nameValue);
                 intent.putExtra("APELLIDO", secnameValue);
                 intent.putExtra("FECHA", fecha);
                 intent.putExtra("GENERO", genero);
+                intent.putExtra("MEGUSTA", mg);
                 startActivity(intent);
             }
                                   }

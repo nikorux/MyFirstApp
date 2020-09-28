@@ -8,11 +8,11 @@
 
     <EditText
         android:id="@+id/txtName"
-        android:layout_width="317dp"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="87dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -20,14 +20,25 @@
 
     <EditText
         android:id="@+id/txtGeneroFecha"
-        android:layout_width="317dp"
-        android:layout_height="wrap_content"
+        android:layout_width="381dp"
+        android:layout_height="67dp"
+        android:layout_below="@+id/txtName"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="144dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="19dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text='Soy "", y nací en fecha' />
+
+    <EditText
+        android:id="@+id/txtmg"
+        android:layout_width="381dp"
+        android:layout_height="67dp"
+        android:layout_below="@+id/txtGeneroFecha"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>
