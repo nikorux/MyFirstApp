@@ -19,7 +19,7 @@ public class SecondActivity extends AppCompatActivity {
         tv1 = (TextView) findViewById(R.id.txtGeneroFecha);
 
         tv.setText("Hola!, mi nombre es: "+getIntent().getStringExtra("NOMBRE")+" "+getIntent().getStringExtra("APELLIDO"));
-        tv1.setText("Soy M/F, y nací en fecha "+getIntent().getStringExtra("FECHA"));
+        tv1.setText("Soy "+getIntent().getStringExtra("GENERO")+", y nací en fecha "+getIntent().getStringExtra("FECHA"));
 
     }
 }

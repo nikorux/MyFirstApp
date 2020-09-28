@@ -9,11 +9,14 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDisplayDate = (TextView) findViewById(R.id.tvDate);
+
+        final Spinner mySpinner = (Spinner) findViewById(R.id.spinner1);
+
+        final ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(MainActivity.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.names));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
 
         mDisplayDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +87,12 @@ public class MainActivity extends AppCompatActivity {
                 String nameValue = Name.getText().toString();
                 String secnameValue = LastName.getText().toString();
                 String fecha = mDisplayDate.getText().toString();
+                String genero = mySpinner.getSelectedItem().toString();
                 Intent intent = new Intent (MainActivity.this, SecondActivity.class);
                 intent.putExtra("NOMBRE", nameValue);
                 intent.putExtra("APELLIDO", secnameValue);
                 intent.putExtra("FECHA", fecha);
+                intent.putExtra("GENERO", genero);
                 startActivity(intent);
             }
                                   }
