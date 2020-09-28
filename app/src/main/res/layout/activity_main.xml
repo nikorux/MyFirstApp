@@ -66,8 +66,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="78dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="69dp"
         android:text="Lenguaje:" />
 
     <TextView
@@ -81,24 +81,24 @@
         android:text="Le gusta programar?" />
 
     <Button
-        android:id="@+id/btnEnviar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="60dp"
-        android:text="ENVIAR" />
-
-    <Button
         android:id="@+id/btnLimpiar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="206dp"
         android:layout_toEndOf="@+id/btnEnviar"
         android:text="LIMPIAR" />
+
+    <Button
+        android:id="@+id/btnEnviar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="202dp"
+        android:text="ENVIAR" />
 
     <Spinner
         android:id="@+id/spinner1"
@@ -130,5 +130,65 @@
             android:layout_height="wrap_content"
             android:text="No" />
     </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/cbJava"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rgmegusta"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="19dp"
+        android:layout_toEndOf="@+id/textView4"
+        android:text="Java" />
+
+    <CheckBox
+        android:id="@+id/cbJS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbJava"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="21dp"
+        android:layout_toEndOf="@+id/textView4"
+        android:text="JS" />
+
+    <CheckBox
+        android:id="@+id/cbCC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbJS"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="28dp"
+        android:layout_toEndOf="@+id/textView4"
+        android:text="C/C++" />
+
+    <CheckBox
+        android:id="@+id/cbPython"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rgmegusta"
+        android:layout_marginStart="29dp"
+        android:layout_marginTop="21dp"
+        android:layout_toEndOf="@+id/cbJava"
+        android:text="Python" />
+
+    <CheckBox
+        android:id="@+id/cbgol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rgmegusta"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="69dp"
+        android:layout_toEndOf="@+id/cbJava"
+        android:text="Go Land" />
+
+    <CheckBox
+        android:id="@+id/cbCS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cbgol"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:layout_toEndOf="@+id/cbCC"
+        android:text="C#" />
 
 </RelativeLayout>

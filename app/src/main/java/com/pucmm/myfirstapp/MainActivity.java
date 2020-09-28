@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     EditText Name, LastName;
     RadioGroup Lenguajes;
     RadioButton Si, No;
+    CheckBox Java, Python, JS, GoLand, CC, CS;
     Button Enviar, Limpiar;
 
     @Override
@@ -87,6 +89,13 @@ public class MainActivity extends AppCompatActivity {
         Name = (EditText) findViewById(R.id.txtNombre);
         LastName = (EditText) findViewById(R.id.txtApellido);
 
+        Java = (CheckBox) findViewById(R.id.cbJava);
+        Python = (CheckBox) findViewById(R.id.cbPython);
+        JS = (CheckBox) findViewById(R.id.cbJS);
+        GoLand = (CheckBox) findViewById(R.id.cbgol);
+        CC = (CheckBox) findViewById(R.id.cbCC);
+        CS = (CheckBox) findViewById(R.id.cbCS);
+
         Enviar = (Button) findViewById(R.id.btnEnviar);
         Limpiar = (Button) findViewById(R.id.btnLimpiar);
 
@@ -95,23 +104,24 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (Si.isChecked()) {
                     Toast.makeText(MainActivity.this, "ACTIVO", Toast.LENGTH_SHORT).show();
-                    /*Java.setEnabled(true);
-                    Python.setEnabled(true);
-                    JS.setEnabled(true);
-                    GoLand.setEnabled(true);
-                    CC.setEnabled(true);
-                    CS.setEnabled(true);*/
+                    Java.setClickable(true);
+                    //Java.setEnabled(true);
+                    Python.setClickable(true);
+                    JS.setClickable(true);
+                    GoLand.setClickable(true);
+                    CC.setClickable(true);
+                    CS.setClickable(true);
 
 
                 }
                 else if (No.isChecked()) {
                     Toast.makeText(MainActivity.this, "INACTIVO", Toast.LENGTH_SHORT).show();
-                    /*Java.setEnabled(false);
-                    Python.setEnabled(false);
-                    JS.setEnabled(false);
-                    GoLand.setEnabled(false);
-                    CC.setEnabled(false);
-                    CS.setEnabled(false);*/
+                    Java.setClickable(false);
+                    Python.setClickable(false);
+                    JS.setClickable(false);
+                    GoLand.setClickable(false);
+                    CC.setClickable(false);
+                    CS.setClickable(false);
 
                 }
             }
