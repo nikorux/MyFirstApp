@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
                 if (Si.isChecked()) {
                     Toast.makeText(MainActivity.this, "ACTIVO", Toast.LENGTH_SHORT).show();
                     Java.setClickable(true);
-                    //Java.setEnabled(true);
                     Python.setClickable(true);
                     JS.setClickable(true);
                     GoLand.setClickable(true);
@@ -183,53 +182,33 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("GENERO", genero);
                     intent.putExtra("MEGUSTA", mg);
                     startActivity(intent);
-                    /*else if (No.isChecked()) {
-
-                    }*/
-
-
-                    /*if (Java.isEnabled()) {
-                        megusta = megusta+"Java, ";
-                    }
-                    if (Python.isEnabled()) {
-                        megusta = megusta+"Python, ";
-                    }
-                    if (JS.isEnabled()) {
-                        megusta = megusta+"JS, ";
-                    }
-                    if (GoLand.isEnabled()) {
-                        megusta = megusta+"Go, ";
-                    }
-                    if (CC.isEnabled()) {
-                        megusta = megusta+"C/C++, ";
-                    }
-                    if (CS.isEnabled()) {
-                        megusta = megusta+"C#, ";
-                    }*/
-
-
 
                 }
 
-                /*    megusta = "No me gusta programar.";
-
-                }
-
-                String mg = megusta.toString();
-
-                Intent intent = new Intent (MainActivity.this, SecondActivity.class);
-                intent.putExtra("NOMBRE", nameValue);
-                intent.putExtra("APELLIDO", secnameValue);
-                intent.putExtra("FECHA", fecha);
-                intent.putExtra("GENERO", genero);
-                intent.putExtra("MEGUSTA", mg);
-                startActivity(intent);*/
             }
           }
 
 
         );
 
+        Limpiar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Name.setText("");
+                LastName.setText("");
+                Si.setChecked(true);
+                No.setChecked(false);
+                Java.setChecked(false);
+                Python.setChecked(false);
+                JS.setChecked(false);
+                GoLand.setChecked(false);
+                CC.setChecked(false);
+                CS.setChecked(false);
+                mDisplayDate.setText("Seleccione la fecha");
+                mySpinner.setAdapter(myAdapter);
+
+            }
+        });
 
     }
 }
