@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E6E6E6"
     tools:context=".SecondActivity">
 
     <EditText
@@ -32,13 +33,14 @@
 
     <EditText
         android:id="@+id/txtmg"
-        android:layout_width="382dp"
-        android:layout_height="190dp"
+        android:layout_width="378dp"
+        android:layout_height="81dp"
         android:layout_below="@+id/txtGeneroFecha"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
         android:ems="10"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart" />
 
 </RelativeLayout>

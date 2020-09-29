@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
                 String genero = mySpinner.getSelectedItem().toString();
 
                 if (nameValue.isEmpty() || secnameValue.isEmpty() || genero.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "Estos datos deben ser obligatorios", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Los campos de Nombre, Apellido y Genero son obligatorios.", Toast.LENGTH_SHORT).show();
                 }
                 else {
 
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if (Si.isChecked()) {
 
-                        megusta = "Me gusta programar. Mis lenguajes \nfavoritos son: ";
+                        megusta = "Me gusta programar. Mis lenguajes" + '\n' + "favoritos son: ";
                         if (Java.isChecked()) {
                             megusta = megusta+"Java, ";
                         }

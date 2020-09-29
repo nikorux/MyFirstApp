@@ -19,8 +19,8 @@ public class SecondActivity extends AppCompatActivity {
         tv1 = (TextView) findViewById(R.id.txtGeneroFecha);
         tv2 = (TextView) findViewById(R.id.txtmg);
 
-        tv.setText("Hola!, mi nombre es: "+getIntent().getStringExtra("NOMBRE")+" "+getIntent().getStringExtra("APELLIDO"));
-        tv1.setText("Soy "+getIntent().getStringExtra("GENERO")+", y nací en fecha "+getIntent().getStringExtra("FECHA"));
+        tv.setText("Hola!, mi nombre es: "+getIntent().getStringExtra("NOMBRE")+" "+getIntent().getStringExtra("APELLIDO")+".");
+        tv1.setText("Soy "+getIntent().getStringExtra("GENERO")+", y nací en fecha "+getIntent().getStringExtra("FECHA")+".");
         tv2.setText(getIntent().getStringExtra("MEGUSTA"));
 
     }
